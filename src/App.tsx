@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
+import { Workspace } from "./components/Workspace";
 import { Work } from "./components/Work";
 import { CustomCursor } from "./components/CustomCursor";
 import { Preloader } from "./components/Preloader";
@@ -34,6 +35,7 @@ function App() {
       */}
       <Navbar />
       <Hero />
+      <Workspace />
       <Work />
       
       <footer className="py-20 text-center border-t border-[#2C1E18]/10 bg-[#F7F2E8]">
