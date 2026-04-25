@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2C1E18;
+  --color-bg-base: #F7F2E8;
+  
+  --font-inter: "Inter", sans-serif;
+  
+  --radius-xl: 20px;
+  --radius-lg: 12px;
+
+  --shadow-premium: 0 10px 40px -10px rgba(44, 30, 24, 0.15);
+  --shadow-premium-hover: 0 20px 60px -15px rgba(44, 30, 24, 0.25);
+}
+
+@layer base {
+  :root {
+    background-color: var(--color-bg-base);
+    color: var(--color-primary);
+    font-family: var(--font-inter);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.02em;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .perspective-1200 {
+    perspective: 1200px;
+  }
+  
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .glass-effect {
+    background: rgba(247, 242, 232, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(44, 30, 24, 0.1);
+  }
+
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    opacity: 0.15;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    mix-blend-mode: overlay;
+  }
+
+  .grid-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    background-size: 100px 100px;
+    background-image: 
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.95; }
+    50% { opacity: 1; }
+    100% { opacity: 0.98; }
+  }
+
+  .animate-flicker {
+    animation: flicker 0.2s infinite;
+  }
+}
